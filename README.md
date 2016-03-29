@@ -30,14 +30,14 @@ In your application.htm.ashx file, add the following lines:
 a/ Html
 
 Insert the following html into your control:
-    ```HTML
-    <div aas-name='BootstrapDatePickerSample' aas-type='BootstrapDateTimePicker.BootstrapDateTimePicker' class='input-group date'>
-        <input type='text' class="form-control" />
-        <span class="input-group-addon">
-            <span class="fa fa-calendar"></span>
-        </span>
-    </div>
-    ```
+```html
+<div aas-name='BootstrapDatePickerSample' aas-type='BootstrapDateTimePicker.BootstrapDateTimePicker' class='input-group date'>
+    <input type='text' class="form-control" />
+    <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+    </span>
+</div>
+```
     
 b/ Binding
 
