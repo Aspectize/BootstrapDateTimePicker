@@ -17,7 +17,7 @@ app.Directories = "BootstrapDateTimePicker";
 
 ## 3 - Include js and css
 
-In your application.htm.ashx file, add the following:
+In your application.htm.ashx file, add the following lines:
 ```javascript
 <!-- bootstrap datepicker -->
 <script src='~BootstrapDateTimePicker/Moment/moment.min.js'></script>
