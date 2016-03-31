@@ -10,7 +10,10 @@ Download extension package from aspectize.com:
 
 ## 2 - Configuration
 
-Add BootstrapDateTimePicker as Shared Application: in your application definition file, add BootstrapDateTimePicker in the Directories list :
+Add BootstrapDateTimePicker as Shared Application in your application configuration file.
+In your Visual Studio Project, find the file Application.js in the Configuration folder.
+
+add BootstrapDateTimePicker in the Directories list :
 ```javascript
 app.Directories = "BootstrapDateTimePicker";
 ```
