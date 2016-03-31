@@ -1,5 +1,5 @@
 # BootstrapDateTimePicker
-BootstrapDateTimePicker Aspectize integration from https://eonasdan.github.io/bootstrap-datetimepicker/
+BootstrapDateTimePicker Aspectize integration for https://eonasdan.github.io/bootstrap-datetimepicker/ component.
 
 ## 1 - Download
 
