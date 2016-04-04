@@ -16,6 +16,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 inline: Aspectize.UiExtensions.GetProperty(elem, 'Inline') || false,
                 viewMode: Aspectize.UiExtensions.GetProperty(elem, 'ViewMode') || 'days',
                 useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent') || true,
+                ignoreReadonly: true,
                 defaultDate: false
             };
 
