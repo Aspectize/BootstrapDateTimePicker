@@ -2,7 +2,7 @@
 /* Build with http://eonasdan.github.io/bootstrap-datetimepicker */
 
 Aspectize.Extend("BootstrapDateTimePicker", {
-    Properties: { Value: null, MinDate: new Date(0), MaxDate: new Date(0), Stepping: 1, Format: '', Inline: false, ViewMode: 'days', UseCurrent: true, DefaultDate: new Date(0), Debug: false },
+    Properties: { Value: null, MinDate: new Date(0), MaxDate: new Date(0), Stepping: 1, Format: '', Inline: false, ViewMode: 'days', UseCurrent: true, DefaultDate: new Date(0), Locale: 'en', Debug: false },
     Events: ['OnValueChanged'],
     Init: function (elem) {
 
@@ -17,6 +17,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 viewMode: Aspectize.UiExtensions.GetProperty(elem, 'ViewMode') || 'days',
                 useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent') || true,
                 ignoreReadonly: true,
+                locale: Aspectize.UiExtensions.GetProperty(elem, 'Locale') || 'en',
                 defaultDate: false
             };
 
@@ -82,6 +83,10 @@ Aspectize.Extend("BootstrapDateTimePicker", {
 
             if ('ViewMode' in arg) {
                 $(sender).data("DateTimePicker").viewMode(arg.ViewMode || 'days');
+            }
+
+            if ('Locale' in arg) {
+                $(sender).data("DateTimePicker").locale(arg.Locale || 'en');
             }
 
         });
