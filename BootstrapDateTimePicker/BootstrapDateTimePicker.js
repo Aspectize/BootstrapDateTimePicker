@@ -29,6 +29,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 var value = null;
                 if (e.date) { value = e.date.toDate(); }
                 Aspectize.UiExtensions.ChangeProperty(elem, 'Value', value);
+                Aspectize.UiExtensions.Notify(elem, 'OnValueChanged', value);
             });
         }
 
