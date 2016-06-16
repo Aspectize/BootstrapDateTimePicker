@@ -51,6 +51,7 @@ The following properties are bindable (reference of properties are here: https:/
 - Stepping: Number of minutes the up/down arrow's will move the minutes value in the time picker.
 - Format: See [momentjs' ](http://momentjs.com/docs/#/displaying/format/) docs for valid formats. Format also dictates what components are shown, e.g. MM/dd/YYYY will not display the time picker.
 - Inline: Will display the picker inline without the need of a input field. This will also hide borders and shadows. The default is false
+- Locale: Define the moment local (see https://github.com/moment/moment/tree/develop/locale).
 - ViewMode: The default view to display when the picker is shown. The default is 'days'.
 - UseCurrent: On show, will set the picker to the current date/time. The default is true.
 - DefaultDate: Sets the picker default date/time. Overrides useCurrent. The default is new Date(0).
