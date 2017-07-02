@@ -92,6 +92,9 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 $(sender).data("DateTimePicker").locale(arg.Locale || 'en');
             }
 
+            if ('Debug' in arg) {
+                $(sender).data("DateTimePicker").debug(arg.Debug || false);
+            }
         });
 
         newPicker();
