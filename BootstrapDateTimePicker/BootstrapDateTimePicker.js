@@ -6,6 +6,8 @@ Aspectize.Extend("BootstrapDateTimePicker", {
     Events: ['OnValueChanged'],
     Init: function (elem) {
 
+        var initialized = false;
+
         function newPicker() {
             var options = {
                 debug: Aspectize.UiExtensions.GetProperty(elem, 'Debug') || false, /* Use debug = true to keep picker open and inspect control */
@@ -37,67 +39,73 @@ Aspectize.Extend("BootstrapDateTimePicker", {
 
         Aspectize.UiExtensions.AddMergedPropertyChangeObserver(elem, function (sender, arg) {
 
-            if ('Value' in arg) {
-                //$(sender).datetimepicker('date', arg.Value);
-                var currentDate = arg.Value; // || new Date();
-                $(sender).data("DateTimePicker").date(currentDate);
-            }
+            if (!initialized) {
+                newPicker();
+                initialized = true;
+            } else {
 
-            if ('UseCurrent' in arg) {
-                $(sender).data("DateTimePicker").useCurrent(arg.UseCurrent || true);
-            }
+                if ('Value' in arg) {
+                    //$(sender).datetimepicker('date', arg.Value);
+                    var currentDate = arg.Value; // || new Date();
+                    $(sender).data("DateTimePicker").date(currentDate);
+                }
 
-            if ('DefaultDate' in arg) {
-                var defaultDate = arg.DefaultDate;
-                if (arg.DefaultDate === null || arg.DefaultDate.valueOf() === 0) defaultDate = false;
-                $(sender).data("DateTimePicker").defaultDate(defaultDate);
-            }
+                if ('UseCurrent' in arg) {
+                    $(sender).data("DateTimePicker").useCurrent(arg.UseCurrent || true);
+                }
 
-            if (('MinDate' in arg) && ('MaxDate' in arg)) {
-                $(sender).data("DateTimePicker").minDate(false);
-                $(sender).data("DateTimePicker").maxDate(false);
-            }
+                if ('DefaultDate' in arg) {
+                    var defaultDate = arg.DefaultDate;
+                    if (arg.DefaultDate === null || arg.DefaultDate.valueOf() === 0) defaultDate = false;
+                    $(sender).data("DateTimePicker").defaultDate(defaultDate);
+                }
 
-            if ('MinDate' in arg) {
-                var mindate = arg.MinDate;
-                if (arg.MinDate === null || arg.MinDate.valueOf() === 0) mindate = false;
-                $(sender).data("DateTimePicker").minDate(mindate);
-            }
+                if (('MinDate' in arg) && ('MaxDate' in arg)) {
+                    $(sender).data("DateTimePicker").minDate(false);
+                    $(sender).data("DateTimePicker").maxDate(false);
+                }
 
-            if ('MaxDate' in arg) {
-                var maxdate = arg.MaxDate
-                if (arg.MaxDate === null || arg.MaxDate.valueOf() === 0) maxdate = false;
-                $(sender).data("DateTimePicker").maxDate(maxdate);
-            }
+                if ('MinDate' in arg) {
+                    var mindate = arg.MinDate;
+                    if (arg.MinDate === null || arg.MinDate.valueOf() === 0) mindate = false;
+                    $(sender).data("DateTimePicker").minDate(mindate);
+                }
 
-            if ('Stepping' in arg) {
-                var stepping = arg.Stepping || 1;
-                $(sender).data("DateTimePicker").stepping(stepping);
-            }
+                if ('MaxDate' in arg) {
+                    var maxdate = arg.MaxDate
+                    if (arg.MaxDate === null || arg.MaxDate.valueOf() === 0) maxdate = false;
+                    $(sender).data("DateTimePicker").maxDate(maxdate);
+                }
 
-            if ('Format' in arg) {
-                var format = arg.Format || 'DD/MM/YYYY HH:mm';
-                $(sender).data("DateTimePicker").format(format);
-            }
+                if ('Stepping' in arg) {
+                    var stepping = arg.Stepping || 1;
+                    $(sender).data("DateTimePicker").stepping(stepping);
+                }
 
-            if ('Inline' in arg) {
-                $(sender).data("DateTimePicker").inline(arg.Inline || false);
-            }
+                if ('Format' in arg) {
+                    var format = arg.Format || 'DD/MM/YYYY HH:mm';
+                    $(sender).data("DateTimePicker").format(format);
+                }
 
-            if ('ViewMode' in arg) {
-                $(sender).data("DateTimePicker").viewMode(arg.ViewMode || 'days');
-            }
+                if ('Inline' in arg) {
+                    $(sender).data("DateTimePicker").inline(arg.Inline || false);
+                }
 
-            if ('Locale' in arg) {
-                $(sender).data("DateTimePicker").locale(arg.Locale || 'en');
-            }
+                if ('ViewMode' in arg) {
+                    $(sender).data("DateTimePicker").viewMode(arg.ViewMode || 'days');
+                }
 
-            if ('Debug' in arg) {
-                $(sender).data("DateTimePicker").debug(arg.Debug || false);
+                if ('Locale' in arg) {
+                    $(sender).data("DateTimePicker").locale(arg.Locale || 'en');
+                }
+
+                if ('Debug' in arg) {
+                    $(sender).data("DateTimePicker").debug(arg.Debug || false);
+                }
             }
         });
 
-        newPicker();
+        //newPicker();
     }
 });
 
