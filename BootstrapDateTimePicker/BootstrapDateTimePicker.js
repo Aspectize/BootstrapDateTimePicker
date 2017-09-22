@@ -15,9 +15,9 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 maxDate: false,
                 stepping: Aspectize.UiExtensions.GetProperty(elem, 'Stepping') || 1,
                 format: Aspectize.UiExtensions.GetProperty(elem, 'Format') || 'DD/MM/YYYY HH:mm',
-                inline: Aspectize.UiExtensions.GetProperty(elem, 'Inline') || false,
+                inline: Aspectize.UiExtensions.GetProperty(elem, 'Inline'),
                 viewMode: Aspectize.UiExtensions.GetProperty(elem, 'ViewMode') || 'days',
-                useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent') || true,
+                useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent'),
                 ignoreReadonly: true,
                 locale: Aspectize.UiExtensions.GetProperty(elem, 'Locale') || 'en',
                 defaultDate: false
@@ -51,7 +51,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             }
 
             if ('UseCurrent' in arg) {
-                $(sender).data("DateTimePicker").useCurrent(arg.UseCurrent || true);
+                $(sender).data("DateTimePicker").useCurrent(arg.UseCurrent);
             }
 
             if ('DefaultDate' in arg) {
@@ -88,7 +88,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             }
 
             if ('Inline' in arg) {
-                $(sender).data("DateTimePicker").inline(arg.Inline || false);
+                $(sender).data("DateTimePicker").inline(arg.Inline);
             }
 
             if ('ViewMode' in arg) {
@@ -100,7 +100,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             }
 
             if ('Debug' in arg) {
-                $(sender).data("DateTimePicker").debug(arg.Debug || false);
+                $(sender).data("DateTimePicker").debug(arg.Debug);
             }
 
         });
