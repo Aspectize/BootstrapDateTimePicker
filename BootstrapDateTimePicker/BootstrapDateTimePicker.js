@@ -19,7 +19,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 viewMode: Aspectize.UiExtensions.GetProperty(elem, 'ViewMode') || 'days',
                 useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent'),
                 ignoreReadonly: true,
-                locale: Aspectize.UiExtensions.GetProperty(elem, 'Locale') || 'en',
+                locale: Aspectize.CultureInfo.GetLanguageInfo().DefaultRegion.toLowerCase() || 'en',
                 defaultDate: false,
                 sideBySide: Aspectize.UiExtensions.GetProperty(elem, 'SideBySide')
             };
@@ -48,6 +48,11 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             if ('Value' in arg) {
                 //$(sender).datetimepicker('date', arg.Value);
                 var currentDate = arg.Value; // || new Date();
+
+                if (typeof currentDate === 'string') {
+                    //currentDate = new Date(currentDate);
+                    currentDate = new Date(moment(currentDate, 'DD/MM/YYYY'));
+                }
                 $(sender).data("DateTimePicker").date(currentDate);
             }
 
