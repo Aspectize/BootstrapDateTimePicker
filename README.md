@@ -55,6 +55,7 @@ The following properties are bindable (reference of properties are here: https:/
 - ViewMode: The default view to display when the picker is shown. The default is 'days'.
 - UseCurrent: On show, will set the picker to the current date/time. The default is true.
 - DefaultDate: Sets the picker default date/time. Overrides useCurrent. The default is new Date(0).
+- SideBySide: Shows the picker side by side when using the time and date together. The default is false.
 - Debug: Will cause the date picker to stay open after a blur event (usefull if you want to inspect the control). The default is false.
 
 The control has the following event:
