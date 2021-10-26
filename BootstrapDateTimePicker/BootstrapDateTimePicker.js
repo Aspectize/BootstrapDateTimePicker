@@ -2,7 +2,7 @@
 /* Build with http://eonasdan.github.io/bootstrap-datetimepicker */
 
 Aspectize.Extend("BootstrapDateTimePicker", {
-    Properties: { Value: null, MinDate: new Date(0), MaxDate: new Date(0), Stepping: 1, Format: '', Inline: false, ViewMode: 'days', UseCurrent: true, SideBySide: false, DefaultDate: new Date(0), Locale: 'en', Debug: false },
+    Properties: { Value: null, MinDate: new Date(0), MaxDate: new Date(0), Stepping: 1, Format: '', Inline: false, ViewMode: 'days', UseCurrent: true, SideBySide: false, DefaultDate: new Date(0), Locale: '', Debug: false },
     Events: ['OnValueChanged'],
     Init: function (elem) {
 
@@ -14,12 +14,12 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                 minDate: false,
                 maxDate: false,
                 stepping: Aspectize.UiExtensions.GetProperty(elem, 'Stepping') || 1,
-                format: Aspectize.UiExtensions.GetProperty(elem, 'Format') || 'DD/MM/YYYY HH:mm',
+                format: Aspectize.UiExtensions.GetProperty(elem, 'Format') || Aspectize.CultureInfo.GetRegionInfo().dateFormat.toUpperCase(), // 'DD/MM/YYYY HH:mm',
                 inline: Aspectize.UiExtensions.GetProperty(elem, 'Inline'),
                 viewMode: Aspectize.UiExtensions.GetProperty(elem, 'ViewMode') || 'days',
                 useCurrent: Aspectize.UiExtensions.GetProperty(elem, 'UseCurrent'),
                 ignoreReadonly: true,
-                locale: Aspectize.CultureInfo.GetLanguageInfo().DefaultRegion.toLowerCase() || 'en',
+                locale: Aspectize.UiExtensions.GetProperty(elem, 'Locale') || Aspectize.CultureInfo.GetCurrentLanguageAndRegion(),
                 defaultDate: false,
                 sideBySide: Aspectize.UiExtensions.GetProperty(elem, 'SideBySide')
             };
