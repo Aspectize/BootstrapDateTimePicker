@@ -27,7 +27,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             if ($(elem).data("DateTimePicker")) {
                 $(elem).data("DateTimePicker").destroy();
             }
-            var noTime = !/hh|HH|mm|ss/.test(options.format);
+            var noTime = !/hh?|HH?|mm?|ss?/.test(options.format);
 
             $(elem).datetimepicker(options).on('dp.change', function (e) {
                 var value = null;
