@@ -38,7 +38,7 @@ Aspectize.Extend("BootstrapDateTimePicker", {
                     } 
                 }
                 Aspectize.UiExtensions.ChangeProperty(elem, 'Value', value);
-                Aspectize.UiExtensions.Notify(elem, 'OnValueChanged', value);
+                //Aspectize.UiExtensions.Notify(elem, 'OnValueChanged', value);
             });
         }
 
