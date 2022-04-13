@@ -27,15 +27,15 @@ Aspectize.Extend("BootstrapDateTimePicker", {
             if ($(elem).data("DateTimePicker")) {
                 $(elem).data("DateTimePicker").destroy();
             }
-            var noTime = !/hh?|HH?|mm?|ss?/.test(options.format);
+            //var noTime = !/hh?|HH?|mm?|ss?/.test(options.format);
 
             $(elem).datetimepicker(options).on('dp.change', function (e) {
                 var value = null;
                 if (e.date) {
                     value = e.date.toDate(); $(elem).removeClass('has-error');
-                    if (noTime) {
-                        value.setHours(0, 0, 0, 0);
-                    } 
+                    //if (noTime) {
+                    //    value.setHours(0, 0, 0, 0);
+                    //} 
                 }
                 Aspectize.UiExtensions.ChangeProperty(elem, 'Value', value);
                 //Aspectize.UiExtensions.Notify(elem, 'OnValueChanged', value);
